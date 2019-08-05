@@ -1,0 +1,136 @@
+﻿<Window x:Class="LearningFormulas.ViewFormulasWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:LearningFormulas"
+        mc:Ignorable="d"
+        Title="View Formulas Window" WindowStartupLocation="CenterScreen" MinHeight="450" Height="450" Width="1000" MinWidth="1000" Background="#FF2D2D30" FontFamily="Consolas" Foreground="Gainsboro">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="10"></ColumnDefinition>
+            <ColumnDefinition Width="0.4*"></ColumnDefinition>
+            <ColumnDefinition Width="0.6*"></ColumnDefinition>
+            <ColumnDefinition Width="10"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="10"></RowDefinition>
+            <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="10"></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <TextBlock Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2" Text="Formulas viewer" HorizontalAlignment="Center" FontSize="30" Margin="0,0,0,20"></TextBlock>
+
+        <Border Padding="20,20,20,0" Grid.Row="2" Grid.Column="1" BorderThickness="1" BorderBrush="White" Background="#FF1C1C1C">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="auto"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto"></RowDefinition>
+                    <RowDefinition Height="auto"></RowDefinition>
+                    <RowDefinition Height="auto"></RowDefinition>
+                    <RowDefinition Height="auto"></RowDefinition>
+                    <RowDefinition Height="auto"></RowDefinition>
+                    <RowDefinition Height="*"></RowDefinition>
+                </Grid.RowDefinitions>
+
+                <TextBlock Margin="0,0,0,20" Text="Filters" Grid.ColumnSpan="2" FontSize="25" Grid.Column="0" Grid.Row="0" HorizontalAlignment="Center"></TextBlock>
+
+                <TextBlock Margin="0,0,0,10" Text="Insert the formula title:" FontSize="15" Grid.Column="0" Grid.Row="1" VerticalAlignment="Center"></TextBlock>
+                <TextBox Margin="0,0,0,10" Name="TitleValue" Grid.Column="1" Grid.Row="1"  Height="20" VerticalAlignment="Center"></TextBox>
+
+                <TextBlock Margin="0,0,5,40" Text="Select the book number:" FontSize="15" Grid.Column="0" Grid.Row="2" VerticalAlignment="Top"></TextBlock>
+                <ComboBox Margin="0,0,0,40" Name="BookValue" Grid.Column="1" Grid.Row="2" Width="auto" Height="20" SelectedIndex="0" HorizontalAlignment="Left" VerticalAlignment="Top">
+                    <ComboBoxItem>None</ComboBoxItem>
+                    <ComboBoxItem>1</ComboBoxItem>
+                    <ComboBoxItem>2</ComboBoxItem>
+                    <ComboBoxItem>3</ComboBoxItem>
+                    <ComboBoxItem>4</ComboBoxItem>
+                    <ComboBoxItem>5</ComboBoxItem>
+                    <ComboBoxItem>6</ComboBoxItem>
+                </ComboBox>
+
+                <TextBlock Margin="0,0,0,40" Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="3" HorizontalAlignment="Right">
+                    <Hyperlink Click="ResetLink_Click"> Reset the table </Hyperlink>
+                </TextBlock>
+
+                <Button Margin="0,0,0,10" Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="2" Width="150" Height="40" Content="_Search" VerticalAlignment="Center" Click="FilterButton_Click">
+                    <Button.ContentTemplate>
+                        <DataTemplate>
+                            <AccessText Text="{Binding}"/>
+                        </DataTemplate>
+                    </Button.ContentTemplate>
+                    <Button.Style>
+                        <Style TargetType="{x:Type Button}">
+                            <Setter Property="Background" Value="#FF1C1C1C" />
+                            <Setter Property="Foreground" Value="White" />
+
+                            <Setter Property="Template">
+                                <Setter.Value>
+                                    <ControlTemplate TargetType="{x:Type Button}">
+                                        <Border x:Name="Border" BorderThickness="1" BorderBrush="White" Background="{TemplateBinding Background}">
+                                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                                        </Border>
+                                        <ControlTemplate.Triggers>
+                                            <Trigger Property="IsMouseOver" Value="True">
+                                                <Setter Property="Background" Value="#FF302D2D" TargetName="Border" />
+                                            </Trigger>
+                                        </ControlTemplate.Triggers>
+                                    </ControlTemplate>
+                                </Setter.Value>
+                            </Setter>
+                        </Style>
+                    </Button.Style>
+                </Button>
+
+                <Button Name="DeleteButton" VerticalAlignment="Top" Grid.Row="5" IsEnabled="False" Grid.Column="0" Grid.ColumnSpan="2" Width="150" Height="40" Content="Delete selected" Click="DeleteSelectedButton_Click">
+                    <Button.ContentTemplate>
+                        <DataTemplate>
+                            <AccessText Text="{Binding}"/>
+                        </DataTemplate>
+                    </Button.ContentTemplate>
+                    <Button.Style>
+                        <Style TargetType="{x:Type Button}">
+                            <Setter Property="Background" Value="#FF1C1C1C" />
+                            <Setter Property="Foreground" Value="Gray" />
+
+                            <Setter Property="Template">
+                                <Setter.Value>
+                                    <ControlTemplate TargetType="{x:Type Button}">
+                                        <Border x:Name="Border" BorderThickness="1" BorderBrush="Gray" Background="{TemplateBinding Background}">
+                                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                                        </Border>
+                                        <ControlTemplate.Triggers>
+                                            <Trigger Property="IsMouseOver" Value="True">
+                                                <Setter Property="Background" Value="#FF302D2D" TargetName="Border" />
+                                            </Trigger>
+                                        </ControlTemplate.Triggers>
+                                    </ControlTemplate>
+                                </Setter.Value>
+                            </Setter>
+                        </Style>
+                    </Button.Style>
+                </Button>
+
+            </Grid>
+        </Border>
+        <DataGrid HorizontalScrollBarVisibility="Visible" Grid.Row="2" Grid.Column="2" Name="FormulasGrid" AutoGenerateColumns="False" Margin="20,0,0,0">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Formula Title" Binding="{Binding FormulaTitle}" />
+                <DataGridTextColumn Header="Book number" Binding="{Binding Book}"/>
+                <DataGridHyperlinkColumn  Header="Book number" Binding="{Binding FormulaImageFileName}">
+                    <DataGridHyperlinkColumn.ElementStyle>
+                        <Style>
+                            <EventSetter Event="Hyperlink.Click" Handler="PictureLink_Click"/>
+                        </Style>
+                    </DataGridHyperlinkColumn.ElementStyle>
+                </DataGridHyperlinkColumn>
+
+            </DataGrid.Columns>
+        </DataGrid>
+
+    </Grid>
+</Window>

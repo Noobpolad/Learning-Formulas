@@ -1,0 +1,26 @@
+﻿<Window x:Class="LearningFormulas.PictureWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:LearningFormulas"
+        mc:Ignorable="d"
+        Title="PictureWindow" Height="450" Width="800" WindowStartupLocation="CenterScreen" Background="#FF2D2D30">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="10"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="10"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="10"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+            <ColumnDefinition Width="10"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+
+        <Border Grid.Column="1" Grid.Row="1" BorderThickness="5" BorderBrush="Green">
+            <Image Name="FormulaPicture" Stretch="Fill"></Image>
+        </Border>
+        
+    </Grid>
+</Window>

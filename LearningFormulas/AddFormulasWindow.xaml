@@ -1,16 +1,14 @@
-﻿<Window x:Class="LearningFormulas.MainWindow"
+﻿<Window x:Class="LearningFormulas.AddFormulasWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:LearningFormulas"
         mc:Ignorable="d"
-        Title="Category Selection" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" Height="450" Width="400" Background="#FF2D2D30" FontFamily="Consolas" Foreground="Gainsboro">
+        Title="Add Formulas Window" WindowStartupLocation="CenterScreen" Height="450" Width="900" ResizeMode="NoResize" Background="#FF2D2D30" FontFamily="Consolas" Foreground="Gainsboro">
 
     <Window.CommandBindings>
-        <CommandBinding Command="local:MainWindow.ViewFormulas" Executed="ViewFormulas_Executed" CanExecute="ViewFormulas_CanExecute"></CommandBinding>
-        <CommandBinding Command="local:MainWindow.AddFormulas" Executed="AddFormulas_Executed" CanExecute="AddFormulas_CanExecute"></CommandBinding>
-        <CommandBinding Command="local:MainWindow.SplitQuestions" Executed="SplitQuestions_Executed" CanExecute="SplitQuestions_CanExecute"></CommandBinding>
+        <CommandBinding Command="local:AddFormulasWindow.ChooseThePicture" Executed="ChooseThePictureCommand_Executed" CanExecute="ChooseThePictureCommand_CanExecute"></CommandBinding>
     </Window.CommandBindings>
 
     <Grid>
@@ -18,17 +16,32 @@
             <RowDefinition Height="auto"></RowDefinition>
             <RowDefinition Height="*"></RowDefinition>
         </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="40"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+            <ColumnDefinition Width="40"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
 
-        <TextBlock FontWeight="Bold" Grid.Row="0" Text="Choose the category" FontSize="25" HorizontalAlignment="Center" Margin="10"></TextBlock>
-        <GroupBox Grid.Row="1" Margin="5" Foreground="White" BorderBrush="White" Header="Categories..." BorderThickness="1" Background="#FF1C1C1C">
+        <TextBlock Grid.Row="0" Grid.Column="1" Text="Add the formula" FontSize="30" HorizontalAlignment="Center" Margin="10"></TextBlock>
+        <GroupBox Margin="0,0,0,20" Header="Fill up the following fields..." Grid.Row="1" Grid.Column="1" Foreground="Gainsboro" BorderBrush="White" Background="#FF1C1C1C">
             <Grid>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="0.3*"></RowDefinition>
                     <RowDefinition Height="0.3*"></RowDefinition>
                     <RowDefinition Height="0.3*"></RowDefinition>
+                    <RowDefinition Height="0.3*"></RowDefinition>
                 </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="auto"></ColumnDefinition>
+                    <ColumnDefinition Width="auto"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
 
-                <Button  FontSize="20" Grid.Row="0" Margin="20" Command="local:MainWindow.ViewFormulas" Content="{Binding RelativeSource={RelativeSource Mode=Self}, Path=Command.Text}">
+                <TextBlock Margin="20,0,20,0" VerticalAlignment="Center" Grid.Row="0" Grid.Column="0" Text="Add the formula title:" FontSize="25"></TextBlock>
+                <TextBox Name="FormulaTitle" Grid.ColumnSpan="2" VerticalAlignment="Center" HorizontalAlignment="Left" Grid.Row="0" Grid.Column="1" Height="20" Width="300"/>
+
+                <TextBlock Margin="20,0,20,0" VerticalAlignment="Center" Grid.Row="1" Grid.Column="0" Text="Choose the formula picture:" FontSize="25"></TextBlock>
+                <Button Grid.Row="1" Grid.Column="1" HorizontalAlignment="Left" Width="150" Height="30" Command="local:AddFormulasWindow.ChooseThePicture" Content="{Binding RelativeSource={RelativeSource Mode=Self}, Path=Command.Text}">
                     <Button.Style>
                         <Style TargetType="{x:Type Button}">
                             <Setter Property="Background" Value="#FF1C1C1C" />
@@ -51,30 +64,26 @@
                         </Style>
                     </Button.Style>
                 </Button>
-                <Button FontSize="20" Grid.Row="1" Margin="20" Command="local:MainWindow.AddFormulas" Content="{Binding RelativeSource={RelativeSource Mode=Self}, Path=Command.Text}">
-                    <Button.Style>
-                        <Style TargetType="{x:Type Button}">
-                            <Setter Property="Background" Value="#FF1C1C1C" />
-                            <Setter Property="Foreground" Value="White" />
+                <TextBlock Margin="10,0,0,0" Name="ImageSelected" Grid.Row="1" Grid.Column="2" VerticalAlignment="Center" Text="No file selected"></TextBlock>
 
-                            <Setter Property="Template">
-                                <Setter.Value>
-                                    <ControlTemplate TargetType="{x:Type Button}">
-                                        <Border x:Name="Border" BorderThickness="1" BorderBrush="White" Background="{TemplateBinding Background}">
-                                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
-                                        </Border>
-                                        <ControlTemplate.Triggers>
-                                            <Trigger Property="IsMouseOver" Value="True">
-                                                <Setter Property="Background" Value="#FF302D2D" TargetName="Border" />
-                                            </Trigger>
-                                        </ControlTemplate.Triggers>
-                                    </ControlTemplate>
-                                </Setter.Value>
-                            </Setter>
-                        </Style>
-                    </Button.Style>
-                </Button>
-                <Button FontSize="20" Grid.Row="2" Margin="20" Command="local:MainWindow.SplitQuestions" Content="{Binding RelativeSource={RelativeSource Mode=Self}, Path=Command.Text}">
+                <TextBlock Margin="20,0,20,0" VerticalAlignment="Center" Grid.Row="2" Grid.Column="0" Text="Choose the book number:" FontSize="25"></TextBlock>
+                <ComboBox Grid.ColumnSpan="2" Name="BooksList" Grid.Row="2" Grid.Column="1" MaxHeight="20" Width="auto" HorizontalAlignment="Left" SelectedIndex="0">
+                    <ComboBoxItem>None</ComboBoxItem>
+                    <ComboBoxItem>1</ComboBoxItem>
+                    <ComboBoxItem>2</ComboBoxItem>
+                    <ComboBoxItem>3</ComboBoxItem>
+                    <ComboBoxItem>4</ComboBoxItem>
+                    <ComboBoxItem>5</ComboBoxItem>
+                    <ComboBoxItem>6</ComboBoxItem>
+                </ComboBox>
+                <TextBlock Grid.Column="1" Grid.Row="2" Margin="65,0,0,0" Text="(or leave as none)" VerticalAlignment="Center"></TextBlock>
+                
+                <Button Content="_Confirm" Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="3" HorizontalAlignment="Center" Height="40" Width="150" Click="ConfirmButton_Click">
+                    <Button.ContentTemplate>
+                        <DataTemplate>
+                            <AccessText Text="{Binding}"/>
+                        </DataTemplate>
+                    </Button.ContentTemplate>
                     <Button.Style>
                         <Style TargetType="{x:Type Button}">
                             <Setter Property="Background" Value="#FF1C1C1C" />
@@ -100,5 +109,7 @@
 
             </Grid>
         </GroupBox>
+
+
     </Grid>
 </Window>
