@@ -34,62 +34,11 @@
                 </Grid.RowDefinitions>
 
                 <TextBlock Grid.Column="0" Grid.Row="0" Margin="20" Text="Formula Name" FontSize="25" HorizontalAlignment="Center"></TextBlock>
-                <TextBox Grid.Column="0" Grid.Row="1" Padding="10,0,10,0" Name="FormulaTitle" MinWidth="200"  IsReadOnly="True" BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20" TextAlignment="Center"></TextBox>
+                <TextBlock Grid.Column="0" Grid.Row="1" Padding="10,0,10,0" Name="FormulaTitle" MinWidth="200" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White" FontSize="25" TextAlignment="Center"></TextBlock>
                 <Button Grid.Column="0" Grid.Row="2" Name="ShowButton" Click="ShowButton_Click"  Content="_Show the formula"  Height="20" Width="180" Margin="0,50,0,10">
-                    <Button.ContentTemplate>
-                        <DataTemplate>
-                            <AccessText Text="{Binding}"/>
-                        </DataTemplate>
-                    </Button.ContentTemplate>
-                    <Button.Style>
-                        <Style TargetType="{x:Type Button}">
-                            <Setter Property="Background" Value="#FF1C1C1C" />
-                            <Setter Property="Foreground" Value="White" />
-
-                            <Setter Property="Template">
-                                <Setter.Value>
-                                    <ControlTemplate TargetType="{x:Type Button}">
-                                        <Border x:Name="Border" BorderThickness="1" BorderBrush="White" Background="{TemplateBinding Background}">
-                                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
-                                        </Border>
-                                        <ControlTemplate.Triggers>
-                                            <Trigger Property="IsMouseOver" Value="True">
-                                                <Setter Property="Background" Value="#FF302D2D" TargetName="Border" />
-                                            </Trigger>
-                                        </ControlTemplate.Triggers>
-                                    </ControlTemplate>
-                                </Setter.Value>
-                            </Setter>
-                        </Style>
-                    </Button.Style>
                 </Button>
                 <Button Grid.Column="0" Grid.Row="3" Name="NextButton" Click="NextFormulaButton_Click"  Content="_Next formula"  Height="20" Width="180" VerticalAlignment="Top">
-                    <Button.ContentTemplate>
-                        <DataTemplate>
-                            <AccessText Text="{Binding}"/>
-                        </DataTemplate>
-                    </Button.ContentTemplate>
-                    <Button.Style>
-                        <Style TargetType="{x:Type Button}">
-                            <Setter Property="Background" Value="#FF1C1C1C" />
-                            <Setter Property="Foreground" Value="White" />
-
-                            <Setter Property="Template">
-                                <Setter.Value>
-                                    <ControlTemplate TargetType="{x:Type Button}">
-                                        <Border x:Name="Border" BorderThickness="1" BorderBrush="White" Background="{TemplateBinding Background}">
-                                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
-                                        </Border>
-                                        <ControlTemplate.Triggers>
-                                            <Trigger Property="IsMouseOver" Value="True">
-                                                <Setter Property="Background" Value="#FF302D2D" TargetName="Border" />
-                                            </Trigger>
-                                        </ControlTemplate.Triggers>
-                                    </ControlTemplate>
-                                </Setter.Value>
-                            </Setter>
-                        </Style>
-                    </Button.Style>
+                    
                 </Button>
 
 

@@ -10,6 +10,5 @@ namespace LearningFormulas
     {
         public static readonly string FormulasFile = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + @"\Formulas.txt";
         public static readonly string PicturesFolder = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + @"\Pictures";
-
     }
 }

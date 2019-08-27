@@ -27,75 +27,18 @@
                     <RowDefinition Height="0.3*"></RowDefinition>
                     <RowDefinition Height="0.3*"></RowDefinition>
                 </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
 
-                <Button  FontSize="20" Grid.Row="0" Margin="20" Command="local:MainWindow.ViewFormulas" Content="{Binding RelativeSource={RelativeSource Mode=Self}, Path=Command.Text}">
-                    <Button.Style>
-                        <Style TargetType="{x:Type Button}">
-                            <Setter Property="Background" Value="#FF1C1C1C" />
-                            <Setter Property="Foreground" Value="White" />
-
-                            <Setter Property="Template">
-                                <Setter.Value>
-                                    <ControlTemplate TargetType="{x:Type Button}">
-                                        <Border x:Name="Border" BorderThickness="1" BorderBrush="White" Background="{TemplateBinding Background}">
-                                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
-                                        </Border>
-                                        <ControlTemplate.Triggers>
-                                            <Trigger Property="IsMouseOver" Value="True">
-                                                <Setter Property="Background" Value="#FF302D2D" TargetName="Border" />
-                                            </Trigger>
-                                        </ControlTemplate.Triggers>
-                                    </ControlTemplate>
-                                </Setter.Value>
-                            </Setter>
-                        </Style>
-                    </Button.Style>
+                <Button FontSize="20" Margin="0,0,0,5" Grid.Row="0" Grid.Column="0" Command="local:MainWindow.ViewFormulas" Content="{Binding RelativeSource={RelativeSource Mode=Self}, Path=Command.Text}" Width="Auto" Height="auto">
+                    
                 </Button>
-                <Button FontSize="20" Grid.Row="1" Margin="20" Command="local:MainWindow.AddFormulas" Content="{Binding RelativeSource={RelativeSource Mode=Self}, Path=Command.Text}">
-                    <Button.Style>
-                        <Style TargetType="{x:Type Button}">
-                            <Setter Property="Background" Value="#FF1C1C1C" />
-                            <Setter Property="Foreground" Value="White" />
-
-                            <Setter Property="Template">
-                                <Setter.Value>
-                                    <ControlTemplate TargetType="{x:Type Button}">
-                                        <Border x:Name="Border" BorderThickness="1" BorderBrush="White" Background="{TemplateBinding Background}">
-                                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
-                                        </Border>
-                                        <ControlTemplate.Triggers>
-                                            <Trigger Property="IsMouseOver" Value="True">
-                                                <Setter Property="Background" Value="#FF302D2D" TargetName="Border" />
-                                            </Trigger>
-                                        </ControlTemplate.Triggers>
-                                    </ControlTemplate>
-                                </Setter.Value>
-                            </Setter>
-                        </Style>
-                    </Button.Style>
+                <Button FontSize="20" Margin="0,0,0,5" HorizontalAlignment="Stretch" Grid.Row="1" Grid.Column="0" Command="local:MainWindow.AddFormulas" Content="{Binding RelativeSource={RelativeSource Mode=Self}, Path=Command.Text}" Width="Auto" Height="auto">
+                    
                 </Button>
-                <Button FontSize="20" Grid.Row="2" Margin="20" Command="local:MainWindow.SplitQuestions" Content="{Binding RelativeSource={RelativeSource Mode=Self}, Path=Command.Text}">
-                    <Button.Style>
-                        <Style TargetType="{x:Type Button}">
-                            <Setter Property="Background" Value="#FF1C1C1C" />
-                            <Setter Property="Foreground" Value="White" />
+                <Button FontSize="20" HorizontalAlignment="Stretch" Grid.Row="2" Grid.Column="0" Command="local:MainWindow.SplitQuestions" Content="{Binding RelativeSource={RelativeSource Mode=Self}, Path=Command.Text}" Width="Auto" Height="auto">
 
-                            <Setter Property="Template">
-                                <Setter.Value>
-                                    <ControlTemplate TargetType="{x:Type Button}">
-                                        <Border x:Name="Border" BorderThickness="1" BorderBrush="White" Background="{TemplateBinding Background}">
-                                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
-                                        </Border>
-                                        <ControlTemplate.Triggers>
-                                            <Trigger Property="IsMouseOver" Value="True">
-                                                <Setter Property="Background" Value="#FF302D2D" TargetName="Border" />
-                                            </Trigger>
-                                        </ControlTemplate.Triggers>
-                                    </ControlTemplate>
-                                </Setter.Value>
-                            </Setter>
-                        </Style>
-                    </Button.Style>
                 </Button>
 
             </Grid>

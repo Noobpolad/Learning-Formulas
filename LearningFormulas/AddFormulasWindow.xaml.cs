@@ -57,7 +57,7 @@ namespace LearningFormulas
         {
             OpenFileDialog ofd = new OpenFileDialog();
             ofd.InitialDirectory = Environment.GetFolderPath((Environment.SpecialFolder.Desktop)).ToString();
-            ofd.Filter = "Image files (*.jpg, *.jpeg, *.jpe, *.jfif, *.png) | *.jpg; *.jpeg; *.jpe; *.jfif; *.png";
+            ofd.Filter = "Image files (*.jpg, *.jpeg, *.jpe, *.jfif, *.png, *.bmp) | *.jpg; *.jpeg; *.jpe; *.jfif; *.png, *.bmp";
 
             chooseThePictureIsAvailable = !chooseThePictureIsAvailable;
             if (ofd.ShowDialog() == true)
