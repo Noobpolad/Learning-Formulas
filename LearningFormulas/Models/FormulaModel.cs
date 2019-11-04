@@ -32,6 +32,13 @@ namespace LearningFormulas.Models
             return FormulaTitle.Length == 0 && FormulaImageFileName.Length == 0 && Book.Length == 0;
         }
 
+        /// <summary>
+        /// Check is one formula equals to another.
+        /// </summary>
+        /// <param name="formulaT"></param>
+        /// <param name="formulasIFN"></param>
+        /// <param name="book"></param>
+        /// <returns></returns>
         public bool EqualsToFormula(string formulaT, string formulasIFN, string book)
         {
 

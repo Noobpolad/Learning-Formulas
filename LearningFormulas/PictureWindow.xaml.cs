@@ -38,6 +38,10 @@ namespace LearningFormulas
                 Close();
         }
 
+        /// <summary>
+        /// Initialize image from the given URI.
+        /// </summary>
+        /// <param name="uri"></param>
         private void InitializeImage(string uri)
         {
             FormulaPicture.Source = new BitmapImage(new Uri(uri));

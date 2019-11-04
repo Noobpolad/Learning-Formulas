@@ -49,6 +49,9 @@ namespace LearningFormulas
             InitializeComponent();
         }
 
+        /// <summary>
+        /// Initialize custom commands.
+        /// </summary>
         private void InitializeAllCommands()
         {
             viewFormula = new RoutedUICommand("View formulas", "View formulas", typeof(MainWindow));

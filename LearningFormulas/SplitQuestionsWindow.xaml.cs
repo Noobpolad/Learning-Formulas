@@ -65,6 +65,9 @@ namespace LearningFormulas
 
         }
 
+        /// <summary>
+        /// Randomize the formulas.
+        /// </summary>
         private void RandomizeFormulas()
         {
             formulas = formulas.OrderBy(x => Guid.NewGuid()).ToList();

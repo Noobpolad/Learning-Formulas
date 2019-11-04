@@ -13,6 +13,24 @@
                         <ContentPresenter VerticalAlignment="Center" HorizontalAlignment="Center" RecognizesAccessKey="True"></ContentPresenter>
                     </Border>
                     <ControlTemplate.Triggers>
+                        <EventTrigger RoutedEvent="Button.MouseEnter">
+                            <EventTrigger.Actions>
+                                <BeginStoryboard Name="Begin">
+                                    <Storyboard>
+                                        <ThicknessAnimation Storyboard.TargetName="Bord" Storyboard.TargetProperty="BorderThickness" RepeatBehavior="Forever" AutoReverse="True" To="2" Duration="0:0:1">
+                                            <ThicknessAnimation.EasingFunction>
+                                                <ElasticEase EasingMode="EaseInOut" Oscillations="2"></ElasticEase>
+                                            </ThicknessAnimation.EasingFunction>
+                                        </ThicknessAnimation>
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </EventTrigger.Actions>
+                        </EventTrigger>
+                        <EventTrigger RoutedEvent="Button.MouseLeave">
+                            <EventTrigger.Actions>
+                                <RemoveStoryboard BeginStoryboardName="Begin"></RemoveStoryboard>
+                            </EventTrigger.Actions>
+                        </EventTrigger>
                         <Trigger Property="IsMouseOver" Value="True">
                             <Setter TargetName="Bord" Property="Background" Value="#FF302D2D"></Setter>
                         </Trigger>

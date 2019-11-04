@@ -117,7 +117,7 @@ namespace LearningFormulas
         }
 
         /// <summary>
-        /// Reset the window
+        /// Reset the window.
         /// </summary>
         private void UpdateTheWindow()
         {
